@@ -1,0 +1,15 @@
+html {
+  background: var(--color-grey);
+  font-family: var(--font-family);
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
