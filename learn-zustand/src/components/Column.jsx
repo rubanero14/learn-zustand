@@ -2,10 +2,16 @@
 import { useStore } from "../store";
 import "./Column.css";
 import Task from "./Task";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const Column = ({ status }) => {
+  const [ticket, setTicket] = useState("");
   const tasks = useStore((store) => store.tasks);
+  console.log(tasks);
+
+  const id = () => {
+    return Math.random() * tasks.length * 10000000000000000;
+  };
 
   // to avoid infinite re-render
   const filteredTasks = useMemo(
@@ -23,14 +29,19 @@ const Column = ({ status }) => {
         <button
           className={"button " + status}
           title="Add new tasks"
-          onClick={() => addTask("Kanban Zustand Learning", status)}
+          onClick={() => addTask(id(), "Kanban Zustand Learning", status)}
         >
           +
         </button>
       </div>
 
       {filteredTasks.map((task) => (
-        <Task title={task.title} status={task.status} key={task.title} />
+        <Task
+          title={task.title}
+          status={task.status}
+          key={task.id}
+          id={task.id}
+        />
       ))}
     </div>
   );
