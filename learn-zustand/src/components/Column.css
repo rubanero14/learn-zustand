@@ -8,4 +8,37 @@
   margin: 0 0.5rem;
   border-radius: 4px;
   padding: 0.5rem;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .button {
+      all: unset; /*this removes all default styling*/
+      background: var(--color-light);
+      color: var(--color-grey-dark);
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+
+      &.planned:hover,
+      &.planned:active {
+        background: var(--color-grey);
+        color: var(--color-light);
+      }
+
+      &.ongoing:hover,
+      &.ongoing:active {
+        background: var(--color-ongoing);
+      }
+
+      &.done:hover,
+      &.done:active {
+        background: var(--color-done);
+      }
+    }
+  }
 }

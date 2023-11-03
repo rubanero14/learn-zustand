@@ -1,11 +1,16 @@
+import { useStore } from "../store";
 import "./Task.css";
 
 // eslint-disable-next-line react/prop-types
-const Task = ({ title, status }) => {
+const Task = ({ title }) => {
+  const task = useStore((store) =>
+    store.tasks.find((task) => task.title === title)
+  );
+
   return (
     <div className="task">
-      <div className="title">{title}</div>
-      <div className={"status " + status}>{status}</div>
+      <div className="title">{task.title}</div>
+      <div className={"status " + task.status}>{task.status}</div>
     </div>
   );
 };
