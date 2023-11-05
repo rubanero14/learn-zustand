@@ -2,16 +2,14 @@
 import { useStore } from "../store";
 import "./Column.css";
 import Task from "./Task";
-import { useMemo, useState } from "react";
+import Modal from "./Modal";
+import { useMemo } from "react";
 
 const Column = ({ status }) => {
-  const [ticket, setTicket] = useState("");
+  const isModalOpen = useStore((store) => store.isModalOpen);
+  const toggleModal = useStore((store) => store.setIsModalOpen);
   const tasks = useStore((store) => store.tasks);
-  console.log(tasks);
-
-  const id = () => {
-    return Math.random() * tasks.length * 10000000000000000;
-  };
+  console.log(isModalOpen);
 
   // to avoid infinite re-render
   const filteredTasks = useMemo(
@@ -19,17 +17,14 @@ const Column = ({ status }) => {
     [tasks, status]
   );
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const addTask = useStore((store) => store.addTask);
-
   return (
     <div className="column">
       <div className="title">
-        <p>{status}</p>
+        <p>{status[0].toUpperCase() + status.slice(1)}</p>
         <button
           className={"button " + status}
           title="Add new tasks"
-          onClick={() => addTask(id(), "Kanban Zustand Learning", status)}
+          onClick={() => toggleModal}
         >
           +
         </button>
@@ -43,6 +38,8 @@ const Column = ({ status }) => {
           id={task.id}
         />
       ))}
+      {isModalOpen && <Modal />}
+      <Modal />
     </div>
   );
 };

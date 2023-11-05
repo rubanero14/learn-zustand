@@ -9,7 +9,12 @@ const store = (set) => ({
     },
   ],
   addTask: (id, title, status) =>
-    set((store) => ({ tasks: [...store.tasks, { id, title, status }] })),
+    set((state) => ({ tasks: [...state.tasks, { id, title, status }] })),
+  isModalOpen: false,
+  setIsModalOpen: (bool) =>
+    set((state) => ({
+      isModalOpen: bool ? bool : !state.isModalOpen,
+    })),
 });
 
 export const useStore = create(store);
