@@ -21,7 +21,9 @@ const Column = ({ status }) => {
   return (
     <div className="column">
       <div className="title">
-        <p>{status[0].toUpperCase() + status.slice(1)}</p>
+        <p>
+          <strong>{status.toUpperCase()}</strong>
+        </p>
         <button
           className={"button " + status}
           title="Add new tasks"
