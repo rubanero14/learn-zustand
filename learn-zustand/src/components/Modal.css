@@ -40,18 +40,26 @@
   .actions {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     width: 100%;
 
     .button {
-      margin: 0 1rem 0 0;
+      margin: 0 0.5rem 0 0;
+      width: 8rem;
     }
   }
 }
 
 @media only screen and (max-width: 666px) {
   .modal-form {
+    padding: 0.75rem;
+
+    .modal-title h3 {
+      font-size: 1rem;
+      text-align: center;
+    }
+
     .actions {
       flex-direction: column;
 
