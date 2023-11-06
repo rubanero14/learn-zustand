@@ -30,8 +30,7 @@
 
       &.planned:hover,
       &.planned:active {
-        background: var(--color-grey);
-        color: var(--color-light);
+        background: var(--color-grey-light);
       }
 
       &.ongoing:hover,

@@ -35,7 +35,7 @@ const Modal = ({ status }) => {
         <br />
         <div className="actions">
           <button
-            className="button"
+            className="button submit"
             type="submit"
             title="Add New Kanban Task"
             onClick={() => {
@@ -48,7 +48,7 @@ const Modal = ({ status }) => {
             Add New Task
           </button>
           <button
-            className="button"
+            className="button reset"
             type="reset"
             title="Reset Form"
             onClick={() => {
@@ -58,7 +58,7 @@ const Modal = ({ status }) => {
             Reset Form
           </button>
           <button
-            className="button"
+            className="button close"
             type="button"
             title="Close Modal"
             onClick={() => {
