@@ -30,14 +30,16 @@ const Column = ({ status }) => {
       </div>
 
       {filteredTasks.map((task) => (
-        <Task
-          title={task.title}
-          status={task.status}
-          key={task.id}
-          id={task.id}
-        />
+        <>
+          <Task
+            title={task.title}
+            status={task.status}
+            key={task.id}
+            id={task.id}
+          />
+          {isModalOpen && <Modal />}
+        </>
       ))}
-      {isModalOpen && <Modal />}
     </div>
   );
 };
