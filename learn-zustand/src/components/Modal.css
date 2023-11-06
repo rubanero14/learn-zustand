@@ -53,6 +53,7 @@
 
     .button {
       all: unset; /*this removes all default styling*/
+      padding: 2px 5px;
       margin: 0 0.5rem 0 0;
       width: 8rem;
       background: var(--color-light);
