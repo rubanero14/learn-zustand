@@ -6,6 +6,7 @@ import "./Modal.css";
 // eslint-disable-next-line react/prop-types
 const Modal = ({ status }) => {
   const [title, setTitle] = useState("");
+  const [error, setError] = useState(false);
   const tasks = useStore((store) => store.tasks);
   const setIsModalOpen = useStore((store) => store.setIsModalOpen);
   const setModalStatus = useStore((store) => store.setModalStatus);
@@ -30,8 +31,13 @@ const Modal = ({ status }) => {
           className="input"
           placeholder="Add Title.."
           value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          required
+          onChange={(event) => {
+            setError(false);
+            setTitle(event.target.value);
+          }}
         />
+        {error && <p className="error">Don't leave this field empty!</p>}
         <br />
         <div className="actions">
           <button
@@ -39,6 +45,10 @@ const Modal = ({ status }) => {
             type="submit"
             title="Add New Kanban Task"
             onClick={() => {
+              if (title.trim() === "") {
+                return setError(true);
+              }
+              setError(false);
               addTask(id(), title, status);
               setTitle("");
               setModalStatus("");

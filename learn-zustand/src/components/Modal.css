@@ -38,6 +38,12 @@
     font-weight: 500;
   }
 
+  .error {
+    color: var(--color-danger);
+    margin: 0.5rem 0 0 0;
+    text-align: center;
+  }
+
   .actions {
     display: flex;
     flex-direction: row;
@@ -46,16 +52,15 @@
     width: 100%;
 
     .button {
+      all: unset; /*this removes all default styling*/
       margin: 0 0.5rem 0 0;
       width: 8rem;
-      all: unset; /*this removes all default styling*/
       background: var(--color-light);
       color: var(--color-grey-dark);
-      height: 1.5rem;
-      width: 1.5rem;
       border-radius: var(--border-radius-sm);
       text-align: center;
       cursor: pointer;
+      font-weight: 500;
 
       &.close {
         background: var(--color-danger);
@@ -68,6 +73,10 @@
       &.submit {
         background: var(--color-done);
       }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -79,6 +88,10 @@
     .modal-title h3 {
       font-size: 1rem;
       text-align: center;
+    }
+
+    .error {
+      font-size: small;
     }
 
     .actions {
