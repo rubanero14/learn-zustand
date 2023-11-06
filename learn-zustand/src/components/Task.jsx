@@ -8,7 +8,9 @@ const Task = ({ id }) => {
   return (
     <div className="task" key={task.id}>
       <div className="title">{task.title}</div>
-      <div className={"status " + task.status}>{task.status}</div>
+      <div className={"status " + task.status}>
+        {task.status[0].toUpperCase() + task.status.slice(1)}
+      </div>
     </div>
   );
 };

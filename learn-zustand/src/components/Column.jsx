@@ -36,6 +36,8 @@ const Column = ({ status }) => {
         </button>
       </div>
 
+      <hr className="divider" />
+
       {filteredTasks.map((task) => (
         <Task
           title={task.title}

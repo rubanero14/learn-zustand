@@ -38,10 +38,8 @@ const Modal = ({ status }) => {
             className="button"
             type="submit"
             title="Add New Kanban Task"
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               addTask(id(), title, status);
-              console.log(tasks);
               setTitle("");
               setModalStatus("");
               setIsModalOpen(false);

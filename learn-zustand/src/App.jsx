@@ -1,12 +1,14 @@
 import "./App.css";
 import Column from "./components/Column";
 
+const statuses = ["planned", "ongoing", "done"];
+
 function App() {
   return (
     <>
-      <Column status="planned" />
-      <Column status="ongoing" />
-      <Column status="done" />
+      {statuses.map((status) => (
+        <Column status={status} key={status} />
+      ))}
     </>
   );
 }

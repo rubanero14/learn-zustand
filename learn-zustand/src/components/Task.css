@@ -1,11 +1,12 @@
 .task {
   background: var(--color-light);
-  border-radius: 4px;
+  border-radius: var(--border-radius-md);
   min-height: 5rem;
   color: #000;
   padding: 0.5rem;
   position: relative;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 
   .status {
     position: absolute;
@@ -14,18 +15,22 @@
     font-size: small;
     background: var(--color-grey-light);
     padding: 0.25rem;
-    border-radius: 4px;
-  }
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    width: 4rem;
+    text-align: center;
+    font-weight: 600;
 
-  .planned {
-    background: var(--color-grey-light);
-  }
+    &.planned {
+      background: var(--color-grey-light);
+    }
 
-  .ongoing {
-    background: var(--color-ongoing);
-  }
+    &.ongoing {
+      background: var(--color-ongoing);
+    }
 
-  .done {
-    background: var(--color-done);
+    &.done {
+      background: var(--color-done);
+    }
   }
 }
