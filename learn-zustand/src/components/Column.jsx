@@ -7,9 +7,8 @@ import { useMemo } from "react";
 
 const Column = ({ status }) => {
   const isModalOpen = useStore((store) => store.isModalOpen);
-  const toggleModal = useStore((store) => store.setIsModalOpen);
+  const setIsModalOpen = useStore((store) => store.setIsModalOpen);
   const tasks = useStore((store) => store.tasks);
-  console.log(isModalOpen);
 
   // to avoid infinite re-render
   const filteredTasks = useMemo(
@@ -24,7 +23,7 @@ const Column = ({ status }) => {
         <button
           className={"button " + status}
           title="Add new tasks"
-          onClick={() => toggleModal}
+          onClick={() => setIsModalOpen(true)}
         >
           +
         </button>
@@ -39,7 +38,6 @@ const Column = ({ status }) => {
         />
       ))}
       {isModalOpen && <Modal />}
-      <Modal />
     </div>
   );
 };

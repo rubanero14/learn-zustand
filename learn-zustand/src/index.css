@@ -6,4 +6,7 @@
   --color-ongoing: #98c1d9;
   --color-done: #91edae;
   --font-family: Helvetica;
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
 }
