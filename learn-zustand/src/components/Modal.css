@@ -41,6 +41,7 @@
     flex-direction: row;
     justify-content: start;
     align-items: start;
+    width: 100%;
 
     .button {
       margin: 0 1rem 0 0;

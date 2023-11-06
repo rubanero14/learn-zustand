@@ -15,6 +15,8 @@ const store = (set) => ({
     set((state) => ({
       isModalOpen: bool ? bool : !state.isModalOpen,
     })),
+  modalStatus: "",
+  setModalStatus: (state) => set(() => ({ modalStatus: state })),
 });
 
 export const useStore = create(store);

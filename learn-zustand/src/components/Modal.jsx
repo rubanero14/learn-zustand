@@ -4,29 +4,23 @@ import { createPortal } from "react-dom";
 import "./Modal.css";
 
 // eslint-disable-next-line react/prop-types
-const Modal = () => {
+const Modal = ({ status }) => {
   const [title, setTitle] = useState("");
-  const [status, setStatus] = useState("");
   const tasks = useStore((store) => store.tasks);
   const setIsModalOpen = useStore((store) => store.setIsModalOpen);
+  const setModalStatus = useStore((store) => store.setModalStatus);
 
   const id = () => {
     return Math.random() * tasks.length * 10000000000000000;
   };
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const useAddTask = (e) => {
-    e.preventDefault();
-    useStore((store) => store.addTask(id(), title, status));
-    setTitle("");
-    setStatus("");
-    setIsModalOpen(false);
-  };
+  const addTask = useStore((store) => store.addTask);
 
   return createPortal(
     <>
       <div className="modal-shade" onClick={() => setIsModalOpen(false)}></div>
-      <form className="modal-form" onSubmit={() => useAddTask}>
+      <div className="modal-form">
         <div className="modal-title">
           <h3>Add New Kanban Task</h3>
         </div>
@@ -38,17 +32,21 @@ const Modal = () => {
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
-        <input
-          type="text"
-          name="status"
-          className="input"
-          placeholder="Add Status.."
-          value={status}
-          onChange={(event) => setStatus(event.target.value)}
-        />
         <br />
         <div className="actions">
-          <button className="button" type="submit" title="Add New Kanban Task">
+          <button
+            className="button"
+            type="submit"
+            title="Add New Kanban Task"
+            onClick={(e) => {
+              e.preventDefault();
+              addTask(id(), title, status);
+              console.log(tasks);
+              setTitle("");
+              setModalStatus("");
+              setIsModalOpen(false);
+            }}
+          >
             Add New Task
           </button>
           <button
@@ -57,7 +55,6 @@ const Modal = () => {
             title="Reset Form"
             onClick={() => {
               setTitle("");
-              setStatus("");
             }}
           >
             Reset Form
@@ -68,14 +65,13 @@ const Modal = () => {
             title="Close Modal"
             onClick={() => {
               setTitle("");
-              setStatus("");
               setIsModalOpen(false);
             }}
           >
             Close
           </button>
         </div>
-      </form>
+      </div>
     </>,
     document.querySelector("body")
   );
