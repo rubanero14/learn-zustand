@@ -7,7 +7,7 @@
   max-width: 20rem;
   margin: 0 0.5rem;
   border-radius: var(--border-radius-lg);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 
   .divider {
     margin: 0 0 0.75rem 0;
