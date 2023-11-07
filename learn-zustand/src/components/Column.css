@@ -5,6 +5,7 @@
   color: #fff;
   width: 33%;
   max-width: 20rem;
+  min-width: 230px;
   margin: 0 0.5rem;
   border-radius: var(--border-radius-lg);
   padding: 0.5rem 1rem;
@@ -43,5 +44,11 @@
         background: var(--color-done);
       }
     }
+  }
+}
+
+@media only screen and (max-width: 666px) {
+  .column {
+    margin-bottom: 2rem;
   }
 }
