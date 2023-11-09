@@ -38,7 +38,7 @@ const Column = ({ status }) => {
 
       <hr className="divider" />
 
-      {filteredTasks.map((task) => (
+      {filteredTasks.reverse().map((task) => (
         <Task
           title={task.title}
           status={task.status}
