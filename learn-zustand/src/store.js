@@ -4,17 +4,17 @@ const store = (set) => ({
   tasks: [
     {
       id: 12233241,
-      title: "Test Zustand",
+      title: "Rainbow Dash",
       status: "planned",
     },
     {
       id: 12233242,
-      title: "Test Zustand",
+      title: "Bambi",
       status: "ongoing",
     },
     {
       id: 12233243,
-      title: "Test Zustand",
+      title: "Mickey",
       status: "done",
     },
   ],
