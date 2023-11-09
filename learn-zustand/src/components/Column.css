@@ -37,11 +37,13 @@
       &.ongoing:hover,
       &.ongoing:active {
         background: var(--color-ongoing);
+        color: var(--color-ongoing-dark);
       }
 
       &.done:hover,
       &.done:active {
         background: var(--color-done);
+        color: var(--color-done-dark);
       }
     }
   }

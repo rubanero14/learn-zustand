@@ -65,14 +65,17 @@
 
       &.close {
         background: var(--color-danger);
+        color: var(--color-danger-dark);
       }
 
       &.reset {
         background: var(--color-ongoing);
+        color: var(--color-ongoing-dark);
       }
 
       &.submit {
         background: var(--color-done);
+        color: var(--color-done-dark);
       }
 
       &:last-child {

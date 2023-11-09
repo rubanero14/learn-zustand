@@ -7,6 +7,39 @@
   position: relative;
   margin-bottom: 0.5rem;
 
+  .deleteButton {
+    all: unset; /*this removes all default styling*/
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    background: var(--color-light);
+    color: var(--color-danger);
+    border: 0.5px solid var(--color-grey-light);
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    cursor: pointer;
+
+    &.planned:hover,
+    &.planned:active {
+      border: 0.5px solid var(--color-grey-light);
+    }
+
+    &.ongoing:hover,
+    &.ongoing:active {
+      border: 0.5px solid var(--color-ongoing);
+    }
+
+    &.done:hover,
+    &.done:active {
+      border: 0.5px solid var(--color-done);
+    }
+  }
+
   .status {
     position: absolute;
     right: 0.5rem;
