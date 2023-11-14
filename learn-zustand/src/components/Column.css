@@ -12,6 +12,18 @@
 
   .divider {
     margin: 0 0 0.75rem 0;
+
+    &.planned {
+      border: 1px solid var(--color-grey-light);
+    }
+
+    &.ongoing {
+      border: 1px solid var(--color-ongoing);
+    }
+
+    &.done {
+      border: 1px solid var(--color-done);
+    }
   }
 
   .title {
