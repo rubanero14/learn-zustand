@@ -20,7 +20,7 @@ const Column = ({ status }) => {
 
   return (
     <div className="column">
-      <div className="title">
+      <div className={"title " + status}>
         <p>
           <strong>{status.toUpperCase()}</strong>
         </p>

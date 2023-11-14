@@ -2,10 +2,21 @@
   background: var(--color-light);
   border-radius: var(--border-radius-md);
   min-height: 5rem;
-  color: #000;
   padding: 0.5rem;
   position: relative;
   margin-bottom: 0.5rem;
+
+  &.planned {
+    color: var(--color-grey-dark);
+  }
+
+  &.ongoing {
+    color: var(--color-ongoing-dark);
+  }
+
+  &.done {
+    color: var(--color-done-dark);
+  }
 
   .deleteButton {
     all: unset; /*this removes all default styling*/
@@ -14,29 +25,14 @@
     left: 0.5rem;
     background: var(--color-light);
     color: var(--color-danger);
-    border: 0.5px solid var(--color-grey-light);
     height: 1.25rem;
     width: 1.25rem;
-    border-radius: var(--border-radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: large;
     cursor: pointer;
 
-    &.planned:hover,
-    &.planned:active {
-      border: 0.5px solid var(--color-grey-light);
-    }
-
-    &.ongoing:hover,
-    &.ongoing:active {
-      border: 0.5px solid var(--color-ongoing);
-    }
-
-    &.done:hover,
-    &.done:active {
-      border: 0.5px solid var(--color-done);
+    & .trash-icon:hover,
+    & .trash-icon:active {
+      fill: var(--color-danger-dark);
     }
   }
 

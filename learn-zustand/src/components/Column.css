@@ -19,6 +19,18 @@
     justify-content: space-between;
     align-items: center;
 
+    &.planned {
+      color: var(--color-grey-light);
+    }
+
+    &.ongoing {
+      color: var(--color-ongoing);
+    }
+
+    &.done {
+      color: var(--color-done);
+    }
+
     .button {
       all: unset; /*this removes all default styling*/
       background: var(--color-light);
