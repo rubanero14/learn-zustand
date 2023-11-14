@@ -58,7 +58,21 @@ const store = (set) => ({
       "Set Moved Task"
     ),
 });
+
+// Custom middleware like logging functionality
+const logger = (config) => (set, get, api) =>
+  config(
+    (...args) => {
+      console.log(args);
+      set(...args);
+    },
+    get,
+    api
+  );
+
 // persist() middleware takes 2 params, devtools and localStorage key nme, its purpose is to persist data changes within browser cache
 // devtools() middleware takes in 1 param which is store, where it will be used to debug and watch state changes in browser extension Redux Devtools
 // In order to both work nicely, wrap devtools() middleware with persist() middleware and lastly wrap them both inside create() middleware
-export const useStore = create(persist(devtools(store), { name: "store" }));
+export const useStore = create(
+  logger(persist(devtools(store), { name: "store" }))
+);
