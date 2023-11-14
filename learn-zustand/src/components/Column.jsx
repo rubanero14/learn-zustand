@@ -3,14 +3,20 @@ import { useStore } from "../store";
 import "./Column.css";
 import Task from "./Task";
 import Modal from "./Modal";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
-const Column = ({ status }) => {
+const Column = ({ status, tasks }) => {
+  const [drop, setDrop] = useState(false);
   const isModalOpen = useStore((store) => store.isModalOpen);
   const modalStatus = useStore((store) => store.modalStatus);
   const setIsModalOpen = useStore((store) => store.setIsModalOpen);
   const setModalStatus = useStore((store) => store.setModalStatus);
-  const tasks = useStore((store) => store.tasks);
+  const setDraggedTask = useStore((store) => store.setDraggedTask);
+  const draggedTask = useStore((store) => store.draggedTask);
+  const movedTask = useStore((store) => store.movedTask);
+  const title = tasks.map((task) =>
+    task.id === draggedTask ? task.title : ""
+  );
 
   // to avoid infinite re-render
   const filteredTasks = useMemo(
@@ -19,7 +25,22 @@ const Column = ({ status }) => {
   );
 
   return (
-    <div className="column">
+    <div
+      className={"column " + drop}
+      onDragOver={(e) => {
+        setDrop(true);
+        e.preventDefault();
+      }}
+      onDragLeave={(e) => {
+        setDrop(false);
+        e.preventDefault();
+      }}
+      onDrop={() => {
+        movedTask(draggedTask, title, status);
+        setDrop(false);
+        setDraggedTask(null);
+      }}
+    >
       <div className={"title " + status}>
         <p>
           <strong>{status.toUpperCase()}</strong>

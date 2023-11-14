@@ -9,6 +9,11 @@
   margin: 0 0.5rem;
   border-radius: var(--border-radius-lg);
   padding: 0.5rem 1rem;
+  border: 0.2rem solid transparent;
+
+  &.true {
+    border: 0.2rem outset var(--color-light);
+  }
 
   .divider {
     margin: 0 0 0.75rem 0;
@@ -75,7 +80,7 @@
 
 @media only screen and (max-width: 666px) {
   .column {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 }
 
